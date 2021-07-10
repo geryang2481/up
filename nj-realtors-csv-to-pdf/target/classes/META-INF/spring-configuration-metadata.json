@@ -1,0 +1,29 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.bluesprucegroup.njrealtors.csvtopdf.config.DatabaseConfig",
+      "name": "spring.datasource.devops",
+      "sourceMethod": "public javax.sql.DataSource devopsDataSource() ",
+      "type": "javax.sql.DataSource"
+    },
+    {
+      "sourceType": "com.bluesprucegroup.njrealtors.csvtopdf.config.DatabaseConfig",
+      "name": "spring.datasource.solution",
+      "sourceMethod": "public javax.sql.DataSource solutionsourceDataSource() ",
+      "type": "javax.sql.DataSource"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "javax.sql.DataSource",
+      "name": "spring.datasource.devops.login-timeout",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "javax.sql.DataSource",
+      "name": "spring.datasource.solution.login-timeout",
+      "type": "java.lang.Integer"
+    }
+  ]
+}

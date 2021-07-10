@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "name": "spring.datasource.bsg",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.bsg.soa.extractor.collateral.config.DatabaseConfig",
+      "sourceMethod": "public javax.sql.DataSource bsgDataSource() "
+    },
+    {
+      "name": "spring.datasource.soa",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.bsg.soa.extractor.collateral.config.DatabaseConfig",
+      "sourceMethod": "public javax.sql.DataSource soaDataSource() "
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

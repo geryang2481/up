@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="common/header :: common-header"/>
+<body roleId="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<head th:replace="common/header :: navbar"/>
+<div class="container main">
+	<div class="page-header">
+		<h1>Upload CSV Data</h1> 
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<form method="POST" enctype="multipart/form-data" action="#" th:action="@{/files/upload/csv}">
+				<div class="row border">
+					<div class="col-md-5 text-left">
+						<div class="input-group">
+							<label class="input-group-btn"> 
+								<span class="btn btn-primary"> Browse&hellip; 
+									<input type="file" name="file" accept=".csv,.tsv" id="customFile" style="display: none;" />
+								</span>
+							</label> 
+							<input type="csv" class="form-control" id="customFileHolder" readonly="true" />
+						</div>
+						<span class="help-block"> Try selecting a <em>CSV</em> file to upload.</span>
+					</div>
+					<div class="col-md-2">
+						<input type="submit" id="btnUploadFile" value="Generate PDFs" class="btn btn-primary" />
+					</div>
+					<div class="col-md-5 text-left">
+						<div th:if="${message}" th:text="${message}" class="alert alert-success" role="alert" id="divUploadSuccess">Upload Success.</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div id="filePdfList"></div>
+	</div>
+	<!-- input type="hidden" th:value="@{/files/pdfList}" id="urlPdfFileList" /-->
+	<input  type="hidden" th:value="@{/files/pdfList}" id="urlPdfFileList" />
+</div>
+<div th:replace="common/footer :: footer">...</div>
+<script type="text/javascript" th:src="@{/js/pdfUpload.js}"></script>
+</body>
+</html>

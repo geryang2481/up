@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="common/header :: common-header"/>
+<body roleId="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<head th:replace="common/header :: navbar"/>
+<div class="container main">
+	<div class="page-header">
+		<div class="row">
+       		<h3>Lead Paint Disclosure QuickEntry</h3>
+        	<div class="table-responsive">
+	            <table class="table table-bordered table-hover table-striped">
+	                <thead>
+		                <tr>
+		                    <th>Edit QuickEntry</th>
+		                    <th>Generate PDF</th>
+		                    <th>Name</th>
+		                    <th>Description</th>
+		                    <th>Delete QuickEntry</th>
+		                </tr>
+	            	</thead>
+		            <tbody>
+		                <tr data-th-each="dataObject : ${njrlpdDOList}">
+		                    <td><a th:href="@{/load/quickentry/njrlpd?quickEntryID=}+${dataObject.quickEntryID}">Edit</a></td>
+		                    <td><a th:href="@{/create/pdf/njrlpd?quickEntryID=}+${dataObject.quickEntryID}">Generate PDF</a></td>
+		                    <td data-th-text="${dataObject.quickEntryName}"/>
+		                    <td data-th-text="${dataObject.quickEntryDescription}"/>
+		                    <td><a th:href="@{/delete/quickentry?quickEntryID=}+${dataObject.quickEntryID}">Delete</a></td>
+		                </tr>
+		            </tbody>
+	        	</table>
+        	</div>
+   		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<form method="post" th:action="@{/save/quickentry/njrlpd?quickEntryID=}+${njrlpdDO.quickEntryID}">
+                <input type="hidden" name="id" th:value="${njrlpdDO.quickEntryID}"/>
+				<table class="table table-bordered table-hover table-striped">
+				<tr>
+					<td><label for="p1l10_propertyAddress1">PAGE1 LINE 10 - II. Property Address (Line 1)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l10_propertyAddress1}" name="p1l10_propertyAddress1" id="p1l10_propertyAddress1" placeholder="<BLANK>" autocomplete="off" /></td>
+				</tr>
+				<tr>
+					<td><label for="p1l11_propertyAddress2">PAGE1 LINE 11 - II. Property Address (Line 2)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l11_propertyAddress2}" name="p1l11_propertyAddress2" id="p1l11_propertyAddress2" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l14_iii_a_initials">PAGE1 LINE 14 - III. SELLER'S DISCLOSURE (A) - Seller Initials</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l14_iii_a_initials}" name="p1l14_iii_a_initials" id="p1l14_iii_a_initials" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l15_knownLeadBasedPaint">PAGE1 LINE 15 - III. SELLER'S DISCLOSURE (A) - Known lead-based paint</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l15_knownLeadBasedPaint}" name="p1l15_knownLeadBasedPaint" id="p1l15_knownLeadBasedPaint" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l16_knownLeadBasedPaintExp1">PAGE1 LINE 16 - III. SELLER'S DISCLOSURE (A) - Known lead-based paint (Explain 1)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l16_knownLeadBasedPaintExp1}" name="p1l16_knownLeadBasedPaintExp1" id="p1l16_knownLeadBasedPaintExp1" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l17_knownLeadBasedPaintExp2">PAGE1 LINE 17 - III. SELLER'S DISCLOSURE (A) - Known lead-based paint (Explain 2)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l17_knownLeadBasedPaintExp2}" name="p1l17_knownLeadBasedPaintExp2" id="p1l17_knownLeadBasedPaintExp2" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l19_sellerNoKnowledge">PAGE1 LINE 19 - III. SELLER'S DISCLOSURE (A) - Seller has no knowledge</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l19_sellerNoKnowledge}" name="p1l19_sellerNoKnowledge" id="p1l19_sellerNoKnowledge" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l121_iii_b_initials">PAGE1 LINE 21 - III. SELLER'S DISCLOSURE (B) - Seller Initials</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l121_iii_b_initials}" name="p1l121_iii_b_initials" id="p1l121_iii_b_initials" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l22_sellerHasNoReports">PAGE1 LINE 22 - III. SELLER'S DISCLOSURE (B) - Seller has no reports or records</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l22_sellerHasNoReports}" name="p1l22_sellerHasNoReports" id="p1l22_sellerHasNoReports" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l23_sellerHasReports">PAGE1 LINE 23 - III. SELLER'S DISCLOSURE (B) - Seller has the following reports or records</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l23_sellerHasReports}" name="p1l23_sellerHasReports" id="p1l23_sellerHasReports" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l27_sellerHasReportsDoc1">PAGE1 LINE 27 - III. SELLER'S DISCLOSURE (B) - Seller has the following reports or records (List documents 1)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l27_sellerHasReportsDoc1}" name="p1l27_sellerHasReportsDoc1" id="p1l27_sellerHasReportsDoc1" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l28_sellerHasReportsDoc2">PAGE1 LINE 28 - III. SELLER'S DISCLOSURE (B) - Seller has the following reports or records (List documents 2)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l28_sellerHasReportsDoc2}" name="p1l28_sellerHasReportsDoc2" id="p1l28_sellerHasReportsDoc2" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l30_iii_c_initials">PAGE1 LINE 30 - III. SELLER'S DISCLOSURE (C) - Seller Initials</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l30_iii_c_initials}" name="p1l30_iii_c_initials" id="p1l30_iii_c_initials" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l37_sellerName1">PAGE1 LINE 37 - IV. SELLER's CERTIFICATION OF ACCURACY (Seller Name 1)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l37_sellerName1}" name="p1l37_sellerName1" id="p1l37_sellerName1" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l37_sellerDate1">PAGE1 LINE 37 - IV. SELLER's CERTIFICATION OF ACCURACY (Seller Date 1)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l37_sellerDate1}" name="p1l37_sellerDate1" id="p1l37_sellerDate1" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l37_sellerName2">PAGE1 LINE 37 - IV. SELLER's CERTIFICATION OF ACCURACY (Seller Name 2)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l37_sellerName2}" name="p1l37_sellerName2" id="p1l37_sellerName2" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l37_sellerDate2">PAGE1 LINE 37 - IV. SELLER's CERTIFICATION OF ACCURACY (Seller Date 2)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l37_sellerDate2}" name="p1l37_sellerDate2" id="p1l37_sellerDate2" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l39_sellerName3">PAGE1 LINE 39 - IV. SELLER's CERTIFICATION OF ACCURACY (Seller Name 3)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l39_sellerName3}" name="p1l39_sellerName3" id="p1l39_sellerName3" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l39_sellerDate3">PAGE1 LINE 39 - IV. SELLER's CERTIFICATION OF ACCURACY (Seller Date 3)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l39_sellerDate3}" name="p1l39_sellerDate3" id="p1l39_sellerDate3" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l39_sellerName4">PAGE1 LINE 39 - IV. SELLER's CERTIFICATION OF ACCURACY (Seller Name 4)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l39_sellerName4}" name="p1l39_sellerName4" id="p1l39_sellerName4" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l39_sellerDate4">PAGE1 LINE 39 - IV. SELLER's CERTIFICATION OF ACCURACY (Seller Date 4)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l39_sellerDate4}" name="p1l39_sellerDate4" id="p1l39_sellerDate4" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l45_listingAgentName">PAGE1 LINE 45 - V. LISTING AGENT'S CERTIFICATION OF ACCURACY (Listing Agent Name)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l45_listingAgentName}" name="p1l45_listingAgentName" id="p1l45_listingAgentName" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l45_listingAgentNameDate">PAGE1 LINE 45 - V. LISTING AGENT'S CERTIFICATION OF ACCURACY (Listing Agent Date)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l45_listingAgentNameDate}" name="p1l45_listingAgentNameDate" id="p1l45_listingAgentNameDate" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l50_vi_a_initials">PAGE1 LINE 50 - VI. PURCHASER'S ACKNOWLEDGMENT (A) - Seller Initials</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l50_vi_a_initials}" name="p1l50_vi_a_initials" id="p1l50_vi_a_initials" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p1l52_vi_b_initials">PAGE1 LINE 52 - VI. PURCHASER'S ACKNOWLEDGMENT (B) - Seller Initials</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p1l52_vi_b_initials}" name="p1l52_vi_b_initials" id="p1l52_vi_b_initials" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p2l57_vi_c_initials">PAGE1 LINE 57 - VI. PURCHASER'S ACKNOWLEDGMENT (C) - Seller Initials</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p2l57_vi_c_initials}" name="p2l57_vi_c_initials" id="p2l57_vi_c_initials" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p2l58_received10days">PAGE2 LINE 58 - VI. PURCHASER'S ACKNOWLEDGMENT (C) Received a 10-day opportunity</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p2l58_received10days}" name="p2l58_received10days" id="p2l58_received10days" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p2l60_waivedOppurtunity">PAGE2 LINE 60 - VI. PURCHASER'S ACKNOWLEDGMENT (C) Waived the opportunity</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p2l60_waivedOppurtunity}" name="p2l60_waivedOppurtunity" id="p2l60_waivedOppurtunity" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p2l67_purchaserName1">PAGE2 LINE 67 - VII. PURCHAER'S CERTIFICATION OF ACCURACY (Purchaser Name 1)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p2l67_purchaserName1}" name="p2l67_purchaserName1" id="p2l67_purchaserName1" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p2l67_purchaserDate1">PAGE2 LINE 67 - VII. PURCHAER'S CERTIFICATION OF ACCURACY (Purchaser Date 1)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p2l67_purchaserDate1}" name="p2l67_purchaserDate1" id="p2l67_purchaserDate1" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p2l67_purchaserName2">PAGE2 LINE 67 - VII. PURCHAER'S CERTIFICATION OF ACCURACY (Purchaser Name 2)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p2l67_purchaserName2}" name="p2l67_purchaserName2" id="p2l67_purchaserName2" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p2l67_purchaserDate2">PAGE2 LINE 67 - VII. PURCHAER'S CERTIFICATION OF ACCURACY (Purchaser Date 2)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p2l67_purchaserDate2}" name="p2l67_purchaserDate2" id="p2l67_purchaserDate2" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p2l69_purchaserName3">PAGE2 LINE 69 - VII. PURCHAER'S CERTIFICATION OF ACCURACY (Purchaser Name 3)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p2l69_purchaserName3}" name="p2l69_purchaserName3" id="p2l69_purchaserName3" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p2l69_purchaserDate3">PAGE2 LINE 69 - VII. PURCHAER'S CERTIFICATION OF ACCURACY (Purchaser Date 3)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p2l69_purchaserDate3}" name="p2l69_purchaserDate3" id="p2l69_purchaserDate3" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p2l69_purchaserName4">PAGE2 LINE 69 - VII. PURCHAER'S CERTIFICATION OF ACCURACY (Purchaser Name 4)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p2l69_purchaserName4}" name="p2l69_purchaserName4" id="p2l69_purchaserName4" placeholder="<BLANK>" autocomplete="off" /></td>
+				</tr>
+				<tr>
+					<td><label for="p2l69_purchaserDate4">PAGE2 LINE 69 - VII. PURCHAER'S CERTIFICATION OF ACCURACY (Purchaser Date 4)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p2l69_purchaserDate4}" name="p2l69_purchaserDate4" id="p2l69_purchaserDate4" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p2l74_sellingByAgentName">PAGE2 LINE 74 - VIII. SELLING/BUYING AGENT'S CERTIFICATION OF ACCURACY (Selling/Buy's Agent Name)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p2l74_sellingByAgentName}" name="p2l74_sellingByAgentName" id="p2l74_sellingByAgentName" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label for="p2l75_sellingByAgentNameDate">PAGE2 LINE 74 - VIII. SELLING/BUYING AGENT'S CERTIFICATION OF ACCURACY (Selling/Buy's Agent Date)</label></td>
+					<td><input type="text" th:value="${njrlpdDO.p2l75_sellingByAgentNameDate}" name="p2l75_sellingByAgentNameDate" id="p2l75_sellingByAgentNameDate" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label>&nbsp;</label></td>
+					<td><label>&nbsp;</label></td>
+				</tr>
+				<tr>
+					<td align="right" style="font-size: 18px; font-weight: bold;"><label>Quick Entry Info</label></td>
+					<td><label>&nbsp;</label></td>
+				</tr>
+				<tr>
+					<td align="right"><label>Name</label></td>
+					<td><input type="text" th:value="${njrlpdDO.quickEntryName}" name="quickEntryName" id="quickEntryName" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td align="right"><label>Description</label></td>
+					<td><input type="text" th:value="${njrlpdDO.quickEntryDescription}" name="quickEntryDescription" id="quickEntryDescription" placeholder="<BLANK>" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label>&nbsp;</label></td>
+					<td><button class="btn btn-primary" type="submit">Save QuickEntry</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<div th:replace="common/footer :: footer">...</div>
+</body>
+</html>

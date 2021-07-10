@@ -1,0 +1,172 @@
+{"properties": [
+  {
+    "name": "com.bsg.logging.pattern",
+    "type": "java.lang.String",
+    "description": "A description for 'com.bsg.logging.pattern'"
+  },
+  {
+    "name": "com.bsg.bsg.bsg.jdbc",
+    "type": "java.lang.String",
+    "description": "A description for 'com.bsg.bsg.bsg.jdbc'"
+  },
+  {
+    "name": "com.bsg.bsg.bsg.a",
+    "type": "java.lang.String",
+    "description": "A description for 'com.bsg.bsg.bsg.a'"
+  },
+  {
+    "name": "com.bsg.bsg.bsg.b",
+    "type": "java.lang.String",
+    "description": "A description for 'com.bsg.bsg.bsg.b'"
+  },
+  {
+    "name": "com.bsg.bsg.db.jdbc",
+    "type": "java.lang.String",
+    "description": "A description for 'com.bsg.bsg.db.jdbc'"
+  },
+  {
+    "name": "com.bsg.bsg.db.a",
+    "type": "java.lang.String",
+    "description": "A description for 'com.bsg.bsg.db.a'"
+  },
+  {
+    "name": "com.bsg.bsg.db.b",
+    "type": "java.lang.String",
+    "description": "A description for 'com.bsg.bsg.db.b'"
+  },
+  {
+    "name": "com.bsg.logging.level",
+    "type": "java.lang.String",
+    "description": "A description for 'com.bsg.logging.level'"
+  },
+  {
+    "name": "spring.datasource.bsg.tomcat.test-on-borrow",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.tomcat.test-on-borrow'"
+  },
+  {
+    "name": "spring.datasource.bsg.tomcat.max-active",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.tomcat.max-active'"
+  },
+  {
+    "name": "spring.datasource.bsg.tomcat.max-wait",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.tomcat.max-wait'"
+  },
+  {
+    "name": "spring.datasource.bsg.driverClassName",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.driverClassName'"
+  },
+  {
+    "name": "spring.datasource.bsg.validationQuery",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.validationQuery'"
+  },
+  {
+    "name": "spring.datasource.bsg.testWhileIdle",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.testWhileIdle'"
+  },
+  {
+    "name": "spring.datasource.bsg.hikari.maximum-pool-size",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.hikari.maximum-pool-size'"
+  },
+  {
+    "name": "spring.datasource.bsg.hikari.minimum-idle",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.hikari.minimum-idle'"
+  },
+  {
+    "name": "spring.datasource.bsg.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.password'"
+  },
+  {
+    "name": "spring.datasource.bsg.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.username'"
+  },
+  {
+    "name": "spring.datasource.bsg.driverClassName",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.driverClassName'"
+  },
+  {
+    "name": "spring.datasource.bsg.validationQuery",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.validationQuery'"
+  },
+  {
+    "name": "spring.datasource.bsg.driverClassName",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.driverClassName'"
+  },
+  {
+    "name": "spring.datasource.bsg.platform",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.platform'"
+  },
+  {
+    "name": "spring.datasource.bsg.jdbc-url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.jdbc-url'"
+  },
+  {
+    "name": "spring.datasource.bsg.testWhileIdle",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.testWhileIdle'"
+  },
+  {
+    "name": "spring.datasource.bsg.tomcat.test-on-borrow",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.tomcat.test-on-borrow'"
+  },
+  {
+    "name": "spring.datasource.bsg.tomcat.max-active",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.tomcat.max-active'"
+  },
+  {
+    "name": "spring.datasource.bsg.tomcat.max-wait",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.tomcat.max-wait'"
+  },
+  {
+    "name": "spring.datasource.bsg.driverClassName",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.driverClassName'"
+  },
+  {
+    "name": "spring.datasource.bsg.validationQuery",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.validationQuery'"
+  },
+  {
+    "name": "spring.datasource.bsg.testWhileIdle",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.testWhileIdle'"
+  },
+  {
+    "name": "spring.datasource.bsg.platform",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.platform'"
+  },
+  {
+    "name": "spring.datasource.bsg.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.password'"
+  },
+  {
+    "name": "spring.datasource.bsg.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.username'"
+  },
+  {
+    "name": "spring.datasource.bsg.jdbc-url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.bsg.jdbc-url'"
+  }
+]}

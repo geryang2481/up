@@ -1,0 +1,998 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="common/header :: common-header"/>
+<body roleId="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<head th:replace="common/header :: navbar"/>
+<div class="container main">
+	<div class="page-header">
+		<div class="row">
+       		<h3>Contract of Sale QuickEntry
+       		</h3>
+        	<div class="table-responsive">
+	            <table class="table table-bordered table-hover table-striped">
+	                <thead>
+		                <tr>
+		                    <th>Edit QuickEntry</th>
+		                    <th>Generate PDF</th>
+		                    <th>Name</th>
+		                    <th>Description</th>
+		                    <th>Delete QuickEntry</th>
+		                </tr>
+	            	</thead>
+		            <tbody>
+		                <tr data-th-each="dataObject : ${njr118DOList}">
+		                    <td><a th:href="@{/load/quickentry/njr118?quickEntryID=}+${dataObject.quickEntryID}">Edit</a></td>
+		                    <td><a th:href="@{/create/pdf/njr118?quickEntryID=}+${dataObject.quickEntryID}">Generate PDF</a></td>
+		                    <td data-th-text="${dataObject.quickEntryName}"/>
+		                    <td data-th-text="${dataObject.quickEntryDescription}"/>
+		                    <td><a th:href="@{/delete/quickentry?quickEntryID=}+${dataObject.quickEntryID}">Delete</a></td>
+		                </tr>
+		            </tbody>
+	        	</table>
+        	</div>
+   		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<form method="post" th:action="@{/save/quickentry/njr118?quickEntryID=}+${njr118DO.quickEntryID}">
+                <input type="hidden" name="id" th:value="${njr118DO.quickEntryID}"/>
+                <!-- START OF QUICK ENTRY FORM -->
+				<table class="table table-bordered table-hover table-striped">
+					<tr>
+						<td><label for="form_buyer_initials">Buyer Initials</label></td>
+						<td><input type="text" th:value="${njr118DO.form_buyer_initials}" name="form_buyer_initials" id="form_buyer_initials" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="form_seller_initials">Seller Initials</label></td>
+						<td><input type="text" th:value="${njr118DO.form_seller_initials}" name="form_seller_initials" id="form_seller_initials" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+				</table>
+				<table class="table table-bordered table-hover table-striped">
+					<!-- Page 1 -->
+					<tr>
+						<td><label for="p1_header"  style="font-size: 18px; font-weight: bold;">Page 1</label></td>
+						<td><input type="hidden" value="" name="p1_header" id="p1_header" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p1_real_estate_broker_rep_value">As a real estate broker, I represent:</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p1_real_estate_broker_rep_value" name="p1_real_estate_broker_rep_value" th:field="${njr118DO.p1_real_estate_broker_rep_value}">
+			    					<option th:value="${njr118DO.p1_real_estate_broker_rep_value}" selected="selected" th:text="${njr118DO.p1_real_estate_broker_rep_text}" />
+			    					<option th:value="1">Seller, not the buyer</option>
+			    					<option th:value="2">Buyer, not the seller</option>
+			    					<option th:value="3">Both the seller and the buyer</option>
+			    					<option th:value="4">Neither the seller nor the buyer</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<tr>
+						<td><label for="p1_seller_name01">Seller 1 Name</label></td>
+						<td><input type="text" th:value="${njr118DO.p1_seller_name01}" name="p1_seller_name01" id="p1_seller_name01" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p1_seller_date01">Seller 1 Date</label></td>
+						<td><input type="text" th:value="${njr118DO.p1_seller_date01}" name="p1_seller_date01" id="p1_seller_date01" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p1_buyer_name01">Buyer 1 Name</label></td>
+						<td><input type="text" th:value="${njr118DO.p1_buyer_name01}" name="p1_buyer_name01" id="p1_buyer_name01" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p1_buyer_date01">Buyer 1 Date</label></td>
+						<td><input type="text" th:value="${njr118DO.p1_buyer_date01}" name="p1_buyer_date01" id="p1_buyer_date01" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p1_seller_name02">Seller 2 Name</label></td>
+						<td><input type="text" th:value="${njr118DO.p1_seller_name02}" name="p1_seller_name02" id="p1_seller_name02" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p1_seller_date02">Seller 2 Date</label></td>
+						<td><input type="text" th:value="${njr118DO.p1_seller_date02}" name="p1_seller_date02" id="p1_seller_date02" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p1_buyer_name02">Buyer 2 Name</label></td>
+						<td><input type="text" th:value="${njr118DO.p1_buyer_name02}" name="p1_buyer_name02" id="p1_buyer_name02" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p1_buyer_date02">Buyer 2 Date</label></td>
+						<td><input type="text" th:value="${njr118DO.p1_buyer_date02}" name="p1_buyer_date02" id="p1_buyer_date02" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p1_listing_broker">Listing Broker</label></td>
+						<td><input type="text" th:value="${njr118DO.p1_listing_broker}" name="p1_listing_broker" id="p1_listing_broker" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p1_listing_broker_date">Listing Broker Date</label></td>
+						<td><input type="text" th:value="${njr118DO.p1_listing_broker_date}" name="p1_listing_broker_date" id="p1_listing_broker_date" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p1_selling_broker">Selling Broker</label></td>
+						<td><input type="text" th:value="${njr118DO.p1_selling_broker}" name="p1_selling_broker" id="p1_selling_broker" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p1_selling_broker_date">Selling Broker Date</label></td>
+						<td><input type="text" th:value="${njr118DO.p1_selling_broker_date}" name="p1_selling_broker_date" id="p1_selling_broker_date" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p1_prepared_by_name">Prepared By</label></td>
+						<td><input type="text" th:value="${njr118DO.p1_prepared_by_name}" name="p1_prepared_by_name" id="p1_prepared_by_name" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<!-- Page 2 -->
+					<tr>
+						<td><label for="p2_header"  style="font-size: 18px; font-weight: bold;">Page 2</label></td>
+						<td><input type="hidden" value="" name="p2_header" id="p2_header" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l16_notes1">Line 16 Notes</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l16_notes1}" name="p2l16_notes1" id="p2l16_notes1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l17_notes2">Line 17 Notes</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l17_notes2}" name="p2l17_notes2" id="p2l17_notes2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l18_notes3">Line 18 Notes</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l18_notes3}" name="p2l18_notes3" id="p2l18_notes3" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l21_buyer_description1">Line 21 Buyer Description 1</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l21_buyer_description1}" name="p2l21_buyer_description1" id="p2l21_buyer_description1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l21_buyer_description2">Line 21 Buyer Description 2</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l21_buyer_description2}" name="p2l21_buyer_description2" id="p2l21_buyer_description2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l23_buyer_address1">Line 23 Buyer Address 1</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l23_buyer_address1}" name="p2l23_buyer_address1" id="p2l23_buyer_address1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l25_buyer_address2">Line 25 Buyer Address 2</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l25_buyer_address2}" name="p2l25_buyer_address2" id="p2l25_buyer_address2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l28_seller_description1">Line 28 Seller Description 1</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l28_seller_description1}" name="p2l28_seller_description1" id="p2l28_seller_description1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l28_seller_description2">Line 28 Seller Description 2</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l28_seller_description2}" name="p2l28_seller_description2" id="p2l28_seller_description2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for=p2l30_seller_address1>Line 30 Seller Address 1</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l30_seller_address1}" name="p2l30_seller_address1" id="p2l30_seller_address1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l32_seller_address2">Line 32 Seller Address 2</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l32_seller_address2}" name="p2l32_seller_address2" id="p2l32_seller_address2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l35_property_address">Line 35 Property Address</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l35_property_address}" name="p2l35_property_address" id="p2l35_property_address" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l37_municipal_tax_map">Line 37 Municipal Tax Map</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l37_municipal_tax_map}" name="p2l37_municipal_tax_map" id="p2l37_municipal_tax_map" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l37_county">Line 37 County</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l37_county}" name="p2l37_county" id="p2l37_county" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l39_as_lot">Line 39 Lot</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l39_as_lot}" name="p2l39_as_lot" id="p2l39_as_lot" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l39_block">Line 39 Block</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l39_block}" name="p2l39_block" id="p2l39_block" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l44_total_purchase_price">Line 44 Total Purchase Price</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l44_total_purchase_price}" name="p2l44_total_purchase_price" id="p2l44_total_purchase_price" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l45_initial_deposit">Line 45 Initial Deposit</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l45_initial_deposit}" name="p2l45_initial_deposit" id="p2l45_initial_deposit" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l46_additional_deposit">Line 46 Additional Deposit</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l46_additional_deposit}" name="p2l46_additional_deposit" id="p2l46_additional_deposit" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l47_mortage">Line 47 Mortage</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l47_mortage}" name="p2l47_mortage" id="p2l47_mortage" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p2l48_balance_of_purchase_price">Line 48 Balance of Purchase Price</label></td>
+						<td><input type="text" th:value="${njr118DO.p2l48_balance_of_purchase_price}" name="p2l48_balance_of_purchase_price" id="p2l48_balance_of_purchase_price" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<!-- Page 3 -->
+					<tr>
+						<td><label for="p3_header"  style="font-size: 18px; font-weight: bold;">Page 3</label></td>
+						<td><input type="hidden" value="" name="p3_header" id="p3_header" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p3l52_initial_deposit_paid_to_value">PAGE3 LINE52 - Initial Deposit Paid To:</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p3l52_initial_deposit_paid_to_value" name="p3l52_initial_deposit_paid_to_value" th:field="${njr118DO.p3l52_initial_deposit_paid_to_value}">
+			    					<option th:value="${njr118DO.p3l52_initial_deposit_paid_to_value}" selected="selected" th:text="${njr118DO.p3l52_initial_deposit_paid_to_text}" />
+			    					<option th:value="1">Listing Broker</option>
+			    					<option th:value="2">Participating Broker</option>
+			    					<option th:value="3">Buyer Attorney</option>
+			    					<option th:value="4">Title Company</option>
+			    					<option th:value="5">Other</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<tr>
+						<td><label for="p3l53_initial_deposit_paid_to_other_description">Line 53 Initial Deposit Paid to Other (Description)</label></td>
+						<td><input type="text" th:value="${njr118DO.p3l53_initial_deposit_paid_to_other_description}" name="p3l53_initial_deposit_paid_to_other_description" id="p3l53_initial_deposit_paid_to_other_description" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p3l53_initial_deposit_date">Line 53 Initial Deposit Date</label></td>
+						<td><input type="text" th:value="${njr118DO.p3l53_initial_deposit_date}" name="p3l53_initial_deposit_date" id="p3l53_initial_deposit_date" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p3l56_additional_deposit_date">Line 56 Additional Deposit Date</label></td>
+						<td><input type="text" th:value="${njr118DO.p3l56_additional_deposit_date}" name="p3l56_additional_deposit_date" id="p3l56_additional_deposit_date" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p3l59_noninterest_bearing_trust_account">Line 59 Bearing Trust Account of (Escrowee)</label></td>
+						<td><input type="text" th:value="${njr118DO.p3l59_noninterest_bearing_trust_account}" name="p3l59_noninterest_bearing_trust_account" id="p3l59_noninterest_bearing_trust_account" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p3l73_principal_amount">Line 73 Principal Amount</label></td>
+						<td><input type="text" th:value="${njr118DO.p3l73_principal_amount}" name="p3l73_principal_amount" id="p3l73_principal_amount" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p3l73_type_of_mortgage_value">PAGE3 LINE173 - Type of Mortgage:</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p3l73_type_of_mortgage_value" name="p3l73_type_of_mortgage_value" th:field="${njr118DO.p3l73_type_of_mortgage_value}">
+			    					<option th:value="${njr118DO.p3l73_type_of_mortgage_value}" selected="selected" th:text="${njr118DO.p3l73_type_of_mortgage_text}" />
+			    					<option th:value="1">VA</option>
+			    					<option th:value="2">FHA</option>
+			    					<option th:value="3">Conventional</option>
+			    					<option th:value="4">Other</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<tr>
+						<td><label for="p3l73_type_of_mortgage_other_description">Other Mortgage (Description)</label></td>
+						<td><input type="text" th:value="${p3l73_type_of_mortgage_other_description}" name="p3l73_type_of_mortgage_other_description" id="p3l73_type_of_mortgage_other_description" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p3l74_term_of_mortgage">Term of Mortgage</label></td>
+						<td><input type="text" th:value="${njr118DO.p3l74_term_of_mortgage}" name="p3l74_term_of_mortgage" id="p3l74_term_of_mortgage" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p3l74_based_on_year_payment_schedule">Line 74 Monthly payments based on number of years payment schedule</label></td>
+						<td><input type="text" th:value="${njr118DO.p3l74_based_on_year_payment_schedule}" name="p3l74_based_on_year_payment_schedule" id="p3l74_based_on_year_payment_schedule" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p3l77_commitment_date">Line 77 Commitment Date</label></td>
+						<td><input type="text" th:value="${njr118DO.p3l77_commitment_date}" name="p3l77_commitment_date" id="p3l77_commitment_date" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p3l79_commitment_date_extended_no_of_days">Line 79 Number of calendar days buyer cannot exceed commitment date</label></td>
+						<td><input type="text" th:value="${njr118DO.p3l79_commitment_date_extended_no_of_days}" name="p3l79_commitment_date_extended_no_of_days" id="p3l79_commitment_date_extended_no_of_days" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p3l80_closing_date_extended_no_of_days">Line 80 Number of calendar days closing date is extended if caused by commitment date extension</label></td>
+						<td><input type="text" th:value="${njr118DO.p3l80_closing_date_extended_no_of_days}" name="p3l80_closing_date_extended_no_of_days" id="p3l80_closing_date_extended_no_of_days" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p3l92_payment_of_balance_date">Line 92 Payment of Balance Date</label></td>
+						<td><input type="text" th:value="${njr118DO.p3l92_payment_of_balance_date}" name="p3l92_payment_of_balance_date" id="p3l92_payment_of_balance_date" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p3l95_fha_va_loans_value">Line 95 FHA/VA Loan</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p3l95_fha_va_loans_value" name="p3l95_fha_va_loans_value" th:field="${njr118DO.p3l95_fha_va_loans_value}">
+			    					<option th:value="${njr118DO.p3l95_fha_va_loans_value}" selected="selected" th:text="${njr118DO.p3l95_fha_va_loans_text}" />
+			    					<option th:value="1">Applicable</option>
+			    					<option th:value="2">Not Applicable</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<tr>
+						<td><label for="p3l103_buyer_property_sale_contingency_value">Line 103 Buyer's property sale contingency</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p3l103_buyer_property_sale_contingency_value" name="p3l103_buyer_property_sale_contingency_value" th:field="${njr118DO.p3l103_buyer_property_sale_contingency_value}">
+			    					<option th:value="${njr118DO.p3l103_buyer_property_sale_contingency_value}" selected="selected" th:text="${njr118DO.p3l103_buyer_property_sale_contingency_text}" />
+			    					<option th:value="1">Applicable</option>
+			    					<option th:value="2">Not Applicable</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<tr>
+						<td><label for="p3l104_buyer_property_contingent_address1">Line 104 Buyer's property sale contingency Address1</label></td>
+						<td><input type="text" th:value="${njr118DO.p3l104_buyer_property_contingent_address1}" name="p3l104_buyer_property_contingent_address1" id="p3l104_buyer_property_contingent_address1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p3l105_buyer_property_contingent_address2">Line 105 Buyer's property sale contingency Address2</label></td>
+						<td><input type="text" th:value="${njr118DO.p3l105_buyer_property_contingent_address2}" name="p3l105_buyer_property_contingent_address2" id="p3l105_buyer_property_contingent_address2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p3l105_sale_contingency_date">Line 105 Buyer's property sale contingency Date</label></td>
+						<td><input type="text" th:value="${njr118DO.p3l105_sale_contingency_date}" name="p3l105_sale_contingency_date" id="p3l105_sale_contingency_date" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<!-- Page 4 -->
+					<tr>
+						<td><label for="p4_header"  style="font-size: 18px; font-weight: bold;">Page 4</label></td>
+						<td><input type="hidden" value="" name="p4_header" id="p4_header" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p4l122_contract_of_sale_date">Line 122 Contract sale date</label></td>
+						<td><input type="text" th:value="${njr118DO.p4l122_contract_of_sale_date}" name="p4l122_contract_of_sale_date" id="p4l122_contract_of_sale_date" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p4l150_items_included_in_sale1">Line 150 Items Included in sale</label></td>
+						<td><input type="text" th:value="${njr118DO.p4l150_items_included_in_sale1}" name="p4l150_items_included_in_sale1" id="p4l150_items_included_in_sale1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p4l151_items_included_in_sale2">Line 151 Items Included in sale</label></td>
+						<td><input type="text" th:value="${njr118DO.p4l151_items_included_in_sale2}" name="p4l151_items_included_in_sale2" id="p4l151_items_included_in_sale2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p4l152_items_included_in_sale3">Line 152 Items Included in sale</label></td>
+						<td><input type="text" th:value="${njr118DO.p4l152_items_included_in_sale3}" name="p4l152_items_included_in_sale3" id="p4l152_items_included_in_sale3" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p4l153_items_included_in_sale4">Line 153 Items Included in sale</label></td>
+						<td><input type="text" th:value="${njr118DO.p4l153_items_included_in_sale4}" name="p4l153_items_included_in_sale4" id="p4l153_items_included_in_sale4" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p4l154_items_included_in_sale5">Line 154 Items Included in sale</label></td>
+						<td><input type="text" th:value="${njr118DO.p4l154_items_included_in_sale5}" name="p4l154_items_included_in_sale5" id="p4l154_items_included_in_sale5" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p4l155_items_included_in_sale6">Line 155 Items Included in sale</label></td>
+						<td><input type="text" th:value="${njr118DO.p4l155_items_included_in_sale6}" name="p4l155_items_included_in_sale6" id="p4l155_items_included_in_sale6" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p4l156_items_included_in_sale7">Line 156 Items Included in sale</label></td>
+						<td><input type="text" th:value="${njr118DO.p4l156_items_included_in_sale7}" name="p4l156_items_included_in_sale7" id="p4l156_items_included_in_sale7" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p4l158_items_excluded_from_sale1">Line 158 Items Excluded in sale</label></td>
+						<td><input type="text" th:value="${njr118DO.p4l158_items_excluded_from_sale1}" name="p4l158_items_excluded_from_sale1" id="p4l158_items_excluded_from_sale1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p4l159_items_excluded_from_sale2">Line 159 Items Excluded in sale</label></td>
+						<td><input type="text" th:value="${njr118DO.p4l159_items_excluded_from_sale2}" name="p4l159_items_excluded_from_sale2" id="p4l159_items_excluded_from_sale2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p4l160_items_excluded_from_sale3">Line 160 Items Excluded in sale</label></td>
+						<td><input type="text" th:value="${njr118DO.p4l160_items_excluded_from_sale3}" name="p4l160_items_excluded_from_sale3" id="p4l160_items_excluded_from_sale3" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p4l161_items_excluded_from_sale4">Line 161 Items Excluded in sale</label></td>
+						<td><input type="text" th:value="${njr118DO.p4l161_items_excluded_from_sale4}" name="p4l161_items_excluded_from_sale4" id="p4l161_items_excluded_from_sale4" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p4l162_items_excluded_from_sale5">Line 162 Items Excluded in sale</label></td>
+						<td><input type="text" th:value="${njr118DO.p4l162_items_excluded_from_sale5}" name="p4l162_items_excluded_from_sale5" id="p4l162_items_excluded_from_sale5" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p4l163_items_excluded_from_sale6">Line 163 Items Excluded in sale</label></td>
+						<td><input type="text" th:value="${njr118DO.p4l163_items_excluded_from_sale6}" name="p4l163_items_excluded_from_sale6" id="p4l163_items_excluded_from_sale6" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p4l164_items_excluded_from_sale7">Line 164 Items Excluded in sale</label></td>
+						<td><input type="text" th:value="${njr118DO.p4l164_items_excluded_from_sale7}" name="p4l164_items_excluded_from_sale7" id="p4l164_items_excluded_from_sale7" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<!-- Page 5 -->
+					<tr>
+						<td><label for="p5_header" style="font-size: 18px; font-weight: bold;">Page 5</label></td>
+						<td><input type="hidden" value="" name="p5_header" id="p5_header" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p5l177_amount_expense_exceeds_to_seller">Line 177 Seller terminates contract if this expense amount is exceeded</label></td>
+						<td><input type="text" th:value="${njr118DO.p5l177_amount_expense_exceeds_to_seller}" name="p5l177_amount_expense_exceeds_to_seller" id="p5l177_amount_expense_exceeds_to_seller" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p5l183_condo_home_associations_value">Line 183 Condominium/Home's Associations</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p5l183_condo_home_associations_value" name="p5l183_condo_home_associations_value" th:field="${njr118DO.p5l183_condo_home_associations_value}">
+			    					<option th:value="${njr118DO.p5l183_condo_home_associations_text}" selected="selected" th:text="${njr118DO.p5l183_condo_home_associations_text}" />
+			    					<option th:value="1">Applicable</option>
+			    					<option th:value="2">Not Applicable</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<tr>
+						<td><label for="p5l187_condo_home_associations_name">Line 187 Condominium/Home's Associations Name</label></td>
+						<td><input type="text" th:value="${njr118DO.p5l187_condo_home_associations_name}" name="p5l187_condo_home_associations_name" id="p5l187_condo_home_associations_name" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p5l188_condo_home_associations_contact_info1">Line 188 Condominium/Home's Associations Contact Info</label></td>
+						<td><input type="text" th:value="${njr118DO.p5l188_condo_home_associations_contact_info1}" name="p5l188_condo_home_associations_contact_info1" id="p5l188_condo_home_associations_contact_info1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p5l189_condo_home_associations_contact_info2">Line 189 Condominium/Home's Associations Contact Info</label></td>
+						<td><input type="text" th:value="${njr118DO.p5l189_condo_home_associations_contact_info2}" name="p5l189_condo_home_associations_contact_info2" id="p5l189_condo_home_associations_contact_info2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p5l196_condo_home_associations_fee_amount">Line 196 Condominium/Home's Associations Fee Amount</label></td>
+						<td><input type="text" th:value="${njr118DO.p5l196_condo_home_associations_fee_amount}" name="p5l196_condo_home_associations_fee_amount" id="p5l196_condo_home_associations_fee_amount" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p5l199_condo_home_associations_assessments_not_applicable_value">Line 199 Condominium/Home's Associations Assessments Fee</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p5l199_condo_home_associations_assessments_not_applicable_value" name="p5l199_condo_home_associations_assessments_not_applicable_value" th:field="${njr118DO.p5l199_condo_home_associations_assessments_not_applicable_value}">
+			    					<option th:value="${njr118DO.p5l199_condo_home_associations_assessments_not_applicable_value}" selected="selected" th:text="${njr118DO.p5l199_condo_home_associations_assessments_not_applicable_text}" />
+			    					<option th:value="1">Applicable</option>
+			    					<option th:value="2">Not Applicable</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<tr>
+						<td><label for="p5l201_condo_home_associations_assessments_by_buyer_amount">Line 201 Assessment payable after closing by Buyer</label></td>
+						<td><input type="text" th:value="${njr118DO.p5l201_condo_home_associations_assessments_by_buyer_amount}" name="p5l201_condo_home_associations_assessments_by_buyer_amount" id="p5l201_condo_home_associations_assessments_by_buyer_amount" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p5l201_condo_home_associations_assessments_by_buyer_purpose1">Line 201 Condominium/Home's Associations Assessments Purpose1</label></td>
+						<td><input type="text" th:value="${njr118DO.p5l201_condo_home_associations_assessments_by_buyer_purpose1}" name="p5l201_condo_home_associations_assessments_by_buyer_purpose1" id="p5l201_condo_home_associations_assessments_by_buyer_purpose1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p5l202_condo_home_associations_assessments_by_buyer_purpose2">Line 202 Condominium/Home's Associations Assessments Purpose2</label></td>
+						<td><input type="text" th:value="${njr118DO.p5l202_condo_home_associations_assessments_by_buyer_purpose2}" name="p5l202_condo_home_associations_assessments_by_buyer_purpose2" id="p5l202_condo_home_associations_assessments_by_buyer_purpose2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p5l211_municipal_assessments_seller_notified_value">Line 211 Municipal Assessments - Seller notified:</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p5l211_municipal_assessments_seller_notified_value" name="p5l211_municipal_assessments_seller_notified_value" th:field="${njr118DO.p5l211_municipal_assessments_seller_notified_value}">
+			    					<option th:value="${njr118DO.p5l211_municipal_assessments_seller_notified_value}" selected="selected" th:text="${njr118DO.p5l211_municipal_assessments_seller_notified_text}" />
+			    					<option th:value="1">Yes</option>
+			    					<option th:value="2">No</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<!-- Page 6 -->
+					<tr>
+						<td><label for="p6_header" style="font-size: 18px; font-weight: bold;">Page 6</label></td>
+						<td><input type="hidden" value="" name="p6_header" id="p6_header" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l233_occupancy_of_property_as_family_residential_dwelling">Line 233 Occupancy of Property as Family Residential Dwelling</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l233_occupancy_of_property_as_family_residential_dwelling}" name="p6l233_occupancy_of_property_as_family_residential_dwelling" id="p6l233_occupancy_of_property_as_family_residential_dwelling" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l246_tenancies_value">Line 246 Tenancies</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p6l246_tenancies_value" name="p6l246_tenancies_value" th:field="${njr118DO.p6l246_tenancies_value}">
+			    					<option th:value="${njr118DO.p6l246_tenancies_value}" selected="selected" th:text="${njr118DO.p6l246_tenancies_text}" />
+			    					<option th:value="1">Applicable</option>
+			    					<option th:value="2">Not Applicable</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<tr>
+						<td><label for="p6l255_tentant_name1">Line 255 Tenant's Name</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l255_tentant_name1}" name="p6l255_tentant_name1" id="p6l255_tentant_name1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l255_tentant_location1">Line 255 Location</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l255_tentant_location1}" name="p6l255_tentant_location1" id="p6l255_tentant_location1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l255_tentant_rent1">Line 255 Rent</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l255_tentant_rent1}" name="p6l255_tentant_rent1" id="p6l255_tentant_rent1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l255_tentant_security_deposit1">Line 255 Security Deposit</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l255_tentant_security_deposit1}" name="p6l255_tentant_security_deposit1" id="p6l255_tentant_security_deposit1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l255_tentant_term1">Line 255 Term</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l255_tentant_term1}" name="p6l255_tentant_term1" id="p6l255_tentant_term1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l256_tentant_name2">Line 256 Tenant's Name</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l256_tentant_name2}" name="p6l256_tentant_name2" id="p6l256_tentant_name2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l256_tentant_location2">Line 256 Location</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l256_tentant_location2}" name="p6l256_tentant_location2" id="p6l256_tentant_location2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l256_tentant_rent2">Line 256 Rent</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l256_tentant_rent2}" name="p6l256_tentant_rent2" id="p6l256_tentant_rent2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l256_tentant_security_deposit2">Line 256 Security Deposit</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l256_tentant_security_deposit2}" name="p6l256_tentant_security_deposit2" id="p6l256_tentant_security_deposit2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l256_tentant_term2">Line 256 Term</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l256_tentant_term2}" name="p6l256_tentant_term2" id="p6l256_tentant_term2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l257_tentant_name3">Line 257 Tenant's Name</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l257_tentant_name3}" name="p6l257_tentant_name3" id="p6l257_tentant_name3" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l257_tentant_location3">Line 257 Location</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l257_tentant_location3}" name="p6l257_tentant_location3" id="p6l257_tentant_location3" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l257_tentant_rent3">Line 257 Rent</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l257_tentant_rent3}" name="p6l257_tentant_rent3" id="p6l257_tentant_rent3" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l257_tentant_security_deposit3">Line 257 Security Deposit</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l257_tentant_security_deposit3}" name="p6l257_tentant_security_deposit3" id="p6l257_tentant_security_deposit3" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l257_tentant_term3">Line 257 Term</label></td>
+						<td><input type="text" th:value="${njr118DO.p6l257_tentant_term3}" name="p6l257_tentant_term3" id="p6l257_tentant_term3" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p6l265_lead_based_paint_value">Line 265 - Lead Based Paint:</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p6l265_lead_based_paint_value" name="p6l265_lead_based_paint_value" th:field="${njr118DO.p6l265_lead_based_paint_value}">
+			    					<option th:value="${njr118DO.p6l265_lead_based_paint_value}" selected="selected" th:text="${njr118DO.p6l265_lead_based_paint_text}" />
+			    					<option th:value="1">Applicable</option>
+			    					<option th:value="2">Not Applicable</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<!-- Page 7 -->
+					<tr>
+						<td><label for="p7_header" style="font-size: 18px; font-weight: bold;">Page 7</label></td>
+						<td><input type="hidden" value="" name="p7_header" id="p7_header" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p7l296_seller_no_days_receipt_of_amendment">Line 296 Seller No of Days after amendment</label></td>
+						<td><input type="text" th:value="${njr118DO.p7l296_seller_no_days_receipt_of_amendment}" name="p7l296_seller_no_days_receipt_of_amendment" id="p7l296_seller_no_days_receipt_of_amendment" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p7l298_buyer_no_days_receipt_of_counterproposal">Line 298 Buyer number of days after receipt of counter-proposal</label></td>
+						<td><input type="text" th:value="${njr118DO.p7l298_buyer_no_days_receipt_of_counterproposal}" name="p7l298_buyer_no_days_receipt_of_counterproposal" id="p7l298_buyer_no_days_receipt_of_counterproposal" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p7l302_private_well_testing_value">Line 302 Private Well Testing</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p7l302_private_well_testing_value" name="p7l302_private_well_testing_value" th:field="${njr118DO.p7l302_private_well_testing_value}">
+			    					<option th:value="${njr118DO.p7l302_private_well_testing_value}" selected="selected" th:text="${njr118DO.p7l302_private_well_testing_text}" />
+			    					<option th:value="1">Applicable</option>
+			    					<option th:value="2">Not Applicable</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<tr>
+						<td><label for="p7l327_poet_value">Line 327 POET:</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p7l327_poet_value" name="p7l327_poet_value" th:field="${njr118DO.p7l327_poet_value}">
+			    					<option th:value="${njr118DO.p7l327_poet_value}" selected="selected" th:text="${njr118DO.p7l327_poet_text}" />
+			    					<option th:value="1">Applicable</option>
+			    					<option th:value="2">Not Applicable</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<tr>
+						<td><label for="p7l332_cesspool_requirements_value">Line332 Cesspool Requirements:</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p7l332_cesspool_requirements_value" name="p7l332_cesspool_requirements_value" th:field="${njr118DO.p7l332_cesspool_requirements_value}">
+			    					<option th:value="${njr118DO.p7l332_cesspool_requirements_value}" selected="selected" th:text="${njr118DO.p7l332_cesspool_requirements_text}" />
+			    					<option th:value="1">Applicable</option>
+			    					<option th:value="2">Not Applicable</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<tr>
+						<td><label for="p7l339_one_or_more_cesspool_value">Line 339  Has one or more cesspool</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p7l339_one_or_more_cesspool_value" name="p7l339_one_or_more_cesspool_value" th:field="${njr118DO.p7l339_one_or_more_cesspool_text}">
+			    					<option th:value="${njr118DO.p7l339_one_or_more_cesspool_value}" selected="selected" th:text="${njr118DO.p7l339_one_or_more_cesspool_text}" />
+			    					<option th:value="1">No</option>
+			    					<option th:value="2">Yes</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<tr>
+						<td><label for="p7l342_seller_agrees_sole_cost_expense_value">Line 342 Seller agrees to sole cost expense</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p7l342_seller_agrees_sole_cost_expense_value" name="p7l342_seller_agrees_sole_cost_expense_value" th:field="${njr118DO.p7l342_seller_agrees_sole_cost_expense_value}">
+			    					<option th:value="${njr118DO.p7l342_seller_agrees_sole_cost_expense_value}" selected="selected" th:text="${njr118DO.p7l342_seller_agrees_sole_cost_expense_text}" />
+			    					<option th:value="1">No</option>
+			    					<option th:value="2">Yes</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<!-- Page 8 -->
+					<tr>
+						<td><label for="p8_header" style="font-size: 18px; font-weight: bold;">Page 8</label></td>
+						<td><input type="hidden" value="" name="p8_header" id="p8_header" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p8l355_buyer_agrees_sole_cost_expense_value">Line 355 Buyer agrees to sole cost expense:</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p8l355_buyer_agrees_sole_cost_expense_value" name="p8l355_buyer_agrees_sole_cost_expense_value" th:field="${njr118DO.p8l355_buyer_agrees_sole_cost_expense_value}">
+			    					<option th:value="${njr118DO.p8l355_buyer_agrees_sole_cost_expense_value}" selected="selected" th:text="${njr118DO.p8l355_buyer_agrees_sole_cost_expense_text}" />
+			    					<option th:value="1">No</option>
+			    					<option th:value="2">Yes</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<!-- Page 12 -->
+					<tr>
+						<td><label for="p12_header" style="font-size: 18px; font-weight: bold;">Page 12</label></td>
+						<td><input type="hidden" value="" name="p12_header" id="p12_header" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l608_name_of_firm">Line 608 Name of firm</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l608_name_of_firm}" name="p12l608_name_of_firm" id="p12l608_name_of_firm" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l609_name_of_sales_rep">Line 609 Name of sales person</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l609_name_of_sales_rep}" name="p12l609_name_of_sales_rep" id="p12l609_name_of_sales_rep" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l611_sales_person_operating_as_value">Line 611 Sales person acting as</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p12l611_sales_person_operating_as_value" name="p12l611_sales_person_operating_as_value" th:field="${njr118DO.p12l611_sales_person_operating_as_value}">
+			    					<option th:value="${njr118DO.p12l611_sales_person_operating_as_value}" selected="selected" th:text="${njr118DO.p12l611_sales_person_operating_as_text}" />
+			    					<option th:value="1">Sellers Agent</option>
+			    					<option th:value="2">Buyers Agent</option>
+			    					<option th:value="3">Dual Agent</option>
+			    					<option th:value="4">Transaction Broker</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<tr>
+						<td><label for="p12l613_name_of_other_firm">Line 613 Name of other firm</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l613_name_of_other_firm}" name="p12l613_name_of_other_firm" id="p12l613_name_of_other_firm" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l615_other_firm_operating_as_value">Line 615 Other firm operating as</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p12l615_other_firm_operating_as_value" name="p12l615_other_firm_operating_as_value" th:field="${njr118DO.p12l615_other_firm_operating_as_value}">
+			    					<option th:value="${njr118DO.p12l615_other_firm_operating_as_value}" selected="selected" th:text="${njr118DO.p12l615_other_firm_operating_as_text}" />
+			    					<option th:value="1">Sellers Agent</option>
+			    					<option th:value="2">Buyers Agent</option>
+			    					<option th:value="4">Transaction Broker</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<tr>
+						<td><label for="p12l623_listing_firm_name">Line 623 Listing firm</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l623_listing_firm_name}" name="p12l623_listing_firm_name" id="p12l623_listing_firm_name" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l623_listing_firm_rec_license_id">Line 623 Listing firm REC license ID</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l623_listing_firm_rec_license_id}" name="p12l623_listing_firm_rec_license_id" id="p12l623_listing_firm_rec_license_id" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l626_listing_agent_name">Line 626 Listing Agent</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l626_listing_agent_name}" name="p12l626_listing_agent_name" id="p12l626_listing_agent_name" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l626_listing_agent_rec_license_id">Line 626 Listing Agen REC license ID</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l626_listing_agent_rec_license_id}" name="p12l626_listing_agent_rec_license_id" id="p12l626_listing_agent_rec_license_id" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l629_listing_address">Line 629 Listing firm address</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l629_listing_address}" name="p12l629_listing_address" id="p12l629_listing_address" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l631_listing_office_phone">Line 631 Listing firm office phone</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l631_listing_office_phone}" name="p12l631_listing_office_phone" id="p12l631_listing_office_phone" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l631_listing_fax">Line 631 Listing firm fax number</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l631_listing_fax}" name="p12l631_listing_fax" id="p12l631_listing_fax" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l631_listing_agent_cellphone">Line 631 Listing firm cellphone</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l631_listing_agent_cellphone}" name="p12l631_listing_agent_cellphone" id="p12l631_listing_agent_cellphone" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l634_listing_email">Line 634 Listing firm email</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l634_listing_email}" name="p12l634_listing_email" id="p12l634_listing_email" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l636_participating_firm">Line 636 Participating Firm</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l636_participating_firm}" name="p12l636_participating_firm" id="p12l636_participating_firm" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l636_participating_firm_rec_license_id">Line 636 Participating Firm REC license ID</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l636_participating_firm_rec_license_id}" name="p12l636_participating_firm_rec_license_id" id="p12l636_participating_firm_rec_license_id" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l639_participating_agent">Line 639 Participating Firm Agent</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l639_participating_agent}" name="p12l639_participating_agent" id="p12l639_participating_agent" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l639_participating_agent_rec_license_id">Line 639 Participating Firm Agent REC license ID</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l639_participating_agent_rec_license_id}" name="p12l639_participating_agent_rec_license_id" id="p12l639_participating_agent_rec_license_id" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l641_participating_address">Line 641 Participating Firm address</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l641_participating_address}" name="p12l641_participating_address" id="p12l641_participating_address" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l643_participating_office_phone">Line 643 Participating Firm office phone</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l643_participating_office_phone}" name="p12l643_participating_office_phone" id="p12l643_participating_office_phone" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l643_participating_fax">Line 643 Participating Firm fax number</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l643_participating_fax}" name="p12l643_participating_fax" id="p12l643_participating_fax" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l643_participating_agent_cellphone">Line 643 Participating Firm cellphone</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l643_participating_agent_cellphone}" name="p12l643_participating_agent_cellphone" id="p12l643_participating_agent_cellphone" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l646_participating_email">Line 646 Participating Firm email</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l646_participating_email}" name="p12l646_participating_email" id="p12l646_participating_email" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p12l649_commission_due_participating_firm">Line 649 Commission due participating firm</label></td>
+						<td><input type="text" th:value="${njr118DO.p12l649_commission_due_participating_firm}" name="p12l649_commission_due_participating_firm" id="p12l649_commission_due_participating_firm" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<!-- Page 13 -->
+					<tr>
+						<td><label for="p13_header" style="font-size: 18px; font-weight: bold;">Page 13</label></td>
+						<td><input type="hidden" value="" name="p13_header" id="p13_header" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p13l651_disclosure_real_estate_license_value">Line 651 Real Estate License Disclosure</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p13l651_disclosure_real_estate_license_value" name="p13l651_disclosure_real_estate_license_value" th:field="${njr118DO.p13l651_disclosure_real_estate_license_value}">
+			    					<option th:value="${njr118DO.p13l651_disclosure_real_estate_license_value}" selected="selected" th:text="${njr118DO.p13l651_disclosure_real_estate_license_text}" />
+			    					<option th:value="1">Applicable</option>
+			    					<option th:value="2">Not Applicable</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<tr>
+						<td><label for="p13l653_disclosure_agent_name">Line 653 Disclosure agent name</label></td>
+						<td><input type="text" th:value="${njr118DO.p13l653_disclosure_agent_name}" name="p13l653_disclosure_agent_name" id="p13l653_disclosure_agent_name" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p13l654_disclosure_agent_value">Line 654 Disclosure Agent as</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p13l654_disclosure_agent_value" name="p13l654_disclosure_agent_value" th:field="${njr118DO.p13l654_disclosure_agent_value}">
+			    					<option th:value="${njr118DO.p13l654_disclosure_agent_value}" selected="selected" th:text="${njr118DO.p13l654_disclosure_agent_text}" />
+			    					<option th:value="1">Broker</option>
+			    					<option th:value="2">Broker Salesperson</option>
+			    					<option th:value="3">Salesperson</option>
+			    					<option th:value="4">Referral</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+					<!-- Page 14 -->
+					<tr>
+						<td><label for="p14_header" style="font-size: 18px; font-weight: bold;">Page 14</label></td>
+						<td><input type="hidden" value="" name="p14_header" id="p14_header" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l712_additional_provisions_01">Line 712 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l712_additional_provisions_01}" name="p14l712_additional_provisions_01" id="p14l712_additional_provisions_01" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l713_additional_provisions_02">Line 713 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l713_additional_provisions_02}" name="p14l713_additional_provisions_02" id="p14l713_additional_provisions_02" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l714_additional_provisions_03">Line 714 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l714_additional_provisions_03}" name="p14l714_additional_provisions_03" id="p14l714_additional_provisions_03" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l715_additional_provisions_04">Line 715 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l715_additional_provisions_04}" name="p14l715_additional_provisions_04" id="p14l715_additional_provisions_04" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l716_additional_provisions_05">Line 716 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l716_additional_provisions_05}" name="p14l716_additional_provisions_05" id="p14l716_additional_provisions_05" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l717_additional_provisions_06">Line 717 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l717_additional_provisions_06}" name="p14l717_additional_provisions_06" id="p14l717_additional_provisions_06" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l718_additional_provisions_07">Line 718 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l718_additional_provisions_07}" name="p14l718_additional_provisions_07" id="p14l718_additional_provisions_07" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l719_additional_provisions_08">Line 719 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l719_additional_provisions_08}" name="p14l719_additional_provisions_08" id="p14l719_additional_provisions_08" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l720_additional_provisions_09">Line 720 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l720_additional_provisions_09}" name="p14l720_additional_provisions_09" id="p14l720_additional_provisions_09" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l721_additional_provisions_10">Line 721 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l721_additional_provisions_10}" name="p14l721_additional_provisions_10" id="p14l721_additional_provisions_10" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l722_additional_provisions_11">Line 722 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l722_additional_provisions_11}" name="p14l722_additional_provisions_11" id="p14l722_additional_provisions_11" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l723_additional_provisions_12">Line 723 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l723_additional_provisions_12}" name="p14l723_additional_provisions_12" id="p14l723_additional_provisions_12" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l724_additional_provisions_13">Line 724 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l724_additional_provisions_13}" name="p14l724_additional_provisions_13" id="p14l724_additional_provisions_13" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l725_additional_provisions_14">Line 725 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l725_additional_provisions_14}" name="p14l725_additional_provisions_14" id="p14l725_additional_provisions_14" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l726_additional_provisions_15">Line 726 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l726_additional_provisions_15}" name="p14l726_additional_provisions_15" id="p14l726_additional_provisions_15" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l727_additional_provisions_16">Line 727 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l727_additional_provisions_16}" name="p14l727_additional_provisions_16" id="p14l727_additional_provisions_16" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l728_additional_provisions_17">Line 728 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l728_additional_provisions_17}" name="p14l728_additional_provisions_17" id="p14l728_additional_provisions_17" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l729_additional_provisions_18">Line 729 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l729_additional_provisions_18}" name="p14l729_additional_provisions_18" id="p14l729_additional_provisions_18" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l730_additional_provisions_19">Line 730 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l730_additional_provisions_19}" name="p14l730_additional_provisions_19" id="p14l730_additional_provisions_19" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l731_additional_provisions_20">Line 731 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l731_additional_provisions_20}" name="p14l731_additional_provisions_20" id="p14l731_additional_provisions_20" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l732_additional_provisions_21">Line 732 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l732_additional_provisions_21}" name="p14l732_additional_provisions_21" id="p14l732_additional_provisions_21" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l733_additional_provisions_22">Line 733 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l733_additional_provisions_22}" name="p14l733_additional_provisions_22" id="p14l733_additional_provisions_22" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l734_additional_provisions_23">Line 734 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l734_additional_provisions_23}" name="p14l734_additional_provisions_23" id="p14l734_additional_provisions_23" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l735_additional_provisions_24">Line 735 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l735_additional_provisions_24}" name="p14l735_additional_provisions_24" id="p14l735_additional_provisions_24" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l736_additional_provisions_25">Line 736 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l736_additional_provisions_25}" name="p14l736_additional_provisions_25" id="p14l736_additional_provisions_25" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l737_additional_provisions_26">Line 737 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l737_additional_provisions_26}" name="p14l737_additional_provisions_26" id="p14l737_additional_provisions_26" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l738_additional_provisions_27">Line 738 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l738_additional_provisions_27}" name="p14l738_additional_provisions_27" id="p14l738_additional_provisions_27" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l739_additional_provisions_28">Line 739 Additional provisions</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l739_additional_provisions_28}" name="p14l739_additional_provisions_28" id="p14l739_additional_provisions_28" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l742_presence1">Line 742 In the presence of</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l742_presence1}" name="p14l742_presence1" id="p14l742_presence1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l742_date1">Line 742 Date</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l742_date1}" name="p14l742_date1" id="p14l742_date1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l742_buyer1">Line 742 Buyer</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l742_buyer1}" name="p14l742_buyer1" id="p14l742_buyer1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l745_presence2">Line 745 In the presence of</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l745_presence2}" name="p14l745_presence2" id="p14l745_presence2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l745_date2">Line 745 Date</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l745_date2}" name="p14l745_date2" id="p14l745_date2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l745_buyer2">Line 745 Buyer</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l745_buyer2}" name="p14l745_buyer2" id="p14l745_buyer2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l748_presence3">Line 748 In the presence of</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l748_presence3}" name="p14l748_presence3" id="p14l748_presence3" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l748_date3">Line 748 Date</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l748_date3}" name="p14l748_date3" id="p14l748_date3" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l748_seller1">Line 748 Seller</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l748_seller1}" name="p14l748_seller1" id="p14l748_seller1" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l751_presence4">Line 751 In the presence of</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l751_presence4}" name="p14l751_presence4" id="p14l751_presence4" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l751_date4">Line 751 Date</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l751_date4}" name="p14l751_date4" id="p14l751_date4" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p14l751_seller2">Line 751 Seller</label></td>
+						<td><input type="text" th:value="${njr118DO.p14l751_seller2}" name="p14l751_seller2" id="p14l751_seller2" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="end_p14"></label></td>
+						<td><input type="hidden" value="" name="end_p14" id="end_p14" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<!-- Quick Entry Info -->
+					<tr>
+						<td align="right"><label for="quickEntryInfo" style="font-size: 18px; font-weight: bold;">Quick Entry Info</label></td>
+						<td><input type="hidden" value="" name="quickEntryInfo" id="quickEntryInfo" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td align="right"><label>Name</label></td>
+						<td><input type="text" th:value="${njr118DO.quickEntryName}" name="quickEntryName" id="quickEntryName" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td align="right"><label>Description</label></td>
+						<td><input type="text" th:value="${njr118DO.quickEntryDescription}" name="quickEntryDescription" id="quickEntryDescription" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label>&nbsp;</label></td>
+						<td><button class="btn btn-primary" type="submit">Save QuickEntry</button></td>
+					</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<div th:replace="common/footer :: footer">...</div>
+</body>
+</html>

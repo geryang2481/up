@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common-header" th:remove="tag">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>New Jersey Realtors</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+    <!-- Bootstrap Theme -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap-theme.min.css}"
+          rel="stylesheet" media="screen" />  
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css' />
+	<!--bootstrap date-time picker-->
+	<link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+	<!--data table-->
+	<link href="/css/jquery.dataTable.min.css" rel="stylesheet" />
+	<link href="/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+	<!-- Custom CSS -->
+	<!--<link href="css/scrolling-nav.css" rel="stylesheet" />-->
+	<link href="/css/main.css" rel="stylesheet" />
+    <link th:href="@{../css/sticky-footer-navbar.css}" rel="stylesheet" media="screen" />
+    <link th:href="@{../css/app.css}" rel="stylesheet" media="screen" />    
+</head>
+ <body>
+	<!-- Navigation -->
+	<div th:fragment="navbar">
+    <img class="img-responsive" src="/nj-realtors-csv-to-pdf/images/banner.png" alt="banner"/>
+    <nav class="navbar navbar-default " role="navigation">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+			<a class="navbar-brand page-scroll" th:href="@{/userFront}">Home</a>
+		</div>
+		 <!-- Collect the nav links, forms, and other content for toggling -->
+	     <div class="collapse  navbar-collapse navbar-ex1-collapse">
+	         <ul class="nav navbar-nav">
+	             <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+	             <li class="hidden">
+	                 <a class="page-scroll" href="#page-top"></a>
+	             </li>
+	             <li class="dropdown">
+	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">QuickEntry<span class="caret"></span></a>
+	                 <ul class="dropdown-menu">
+	                     <li><a th:href="@{/load/quickentry/njr118?quickEntryID=0}">Contract of Sale</a></li>
+	                     <li role="separator" class="divider"></li>
+	                     <li><a th:href="@{/load/quickentry/njrlpd?quickEntryID=0}">Lead Paint Disclosure</a></li>
+	                 </ul>
+	             </li>
+	              <!-- li class="dropdown">
+	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">QuickUpload<span class="caret"></span></a>
+	                 <ul class="dropdown-menu">
+	                     <>li><a th:href="@{/upload/tsv}">TSV</a></li>
+	                     <li role="separator" class="divider"></li>
+	                     <li><a th:href="@{/upload/xls}">Excel-(XLS)</a></li>
+	                     <li role="separator" class="divider"></li>
+	                     <li><a th:href="@{/upload/profilereport}">HTML-ProfileReport</a></li>
+	                     <li role="separator" class="divider"></li>
+	                     <li><a th:href="@{/upload/njtax}">HTML-NJTaxRecords.com to PDF</a></li>
+	                     <li role="separator" class="divider"></li>
+	                     <li><a th:href="@{/upload/gsmls}">HTML-NJTaxRecords.com to PDF (Append Contract of Sale + Lead Paint Disc.)</a></li>
+	                     <li role="separator" class="divider"></li>
+	                      <li><a th:href="@{/upload/njtax}">HTML-GSMLS to PDF</a></li>
+	                     <li role="separator" class="divider"></li>
+	                     <li><a th:href="@{/upload/gsmls}">HTML-GSMLS to PDF (Append Contract of Sale + Lead Paint Disc.)</a></li>
+	                 </ul>
+	             </li-->
+	             <!-- >li class="dropdown">
+	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Append<span class="caret"></span></a>
+	                 <ul class="dropdown-menu">
+	                     <li><a th:href="@{/append/pdf}">Append Tax Records and GSMLS</a></li>
+	                     <li role="separator" class="divider"></li>
+	                     <li><a th:href="@{/download/pdf/leadPaintDisclosure}">Lead Paint Disclosure</a></li>
+	                 </ul>
+	             </li-->
+	             <li class="dropdown">
+	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download Blank Forms<span class="caret"></span></a>
+	                 <ul class="dropdown-menu">
+	                     <li><a th:href="@{/download/pdf/contractOfSale}">Contract of Sale</a></li>
+	                     <li role="separator" class="divider"></li>
+	                     <li><a th:href="@{/download/pdf/leadPaintDisclosure}">Lead Paint Disclosure</a></li>
+	                 </ul>
+	             </li>
+	             <li class="dropdown">
+	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+	                 <ul class="dropdown-menu">
+	                     <li><a th:href="@{/signup}">Create User</a></li>
+	                 </ul>
+	             </li>
+	         </ul>
+	     </div>
+	     <!-- /.navbar-collapse -->
+    </div>
+	</nav>
+</div>
+<div th:fragment="body-bottom-scripts">
+	    <!-- jQuery -->
+	    <script src="/js/jquery.js"></script>
+	    <!-- Bootstrap Core JavaScript -->
+	    <script src="/js/bootstrap.min.js"></script>
+	    <script src="/js/jquery.easing.min.js"></script>
+	    <!--bootstrap date-time picker-->
+	    <script src="/js/bootstrap-datetimepicker.min.js"></script>
+	    <!--bootbox-->
+	    <script src="/js/bootbox.min.js"></script>
+	    <!--data table-->
+	    <script src="/js/jquery.dataTables.min.js"></script>
+	    <script src="/js/dataTables.bootstrap.min.js"></script>
+	    <!--main js-->
+	    <script src="/js/main.js"></script>
+	</div>
+</body>
+</html>

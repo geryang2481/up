@@ -1,0 +1,18 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.bluesprucegroup.njrealtors.csvtopdf.config.DatabaseConfig",
+      "name": "spring.datasource.devops",
+      "sourceMethod": "devopsDataSource()",
+      "type": "javax.sql.DataSource"
+    },
+    {
+      "sourceType": "com.bluesprucegroup.njrealtors.csvtopdf.config.DatabaseConfig",
+      "name": "spring.datasource.solution",
+      "sourceMethod": "solutionsourceDataSource()",
+      "type": "javax.sql.DataSource"
+    }
+  ],
+  "properties": []
+}

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: gerya
+Build-Jdk: 11.0.11
+Implementation-Title: nj-realtors-csv-to-pdf
+Implementation-Version: 1.0.0.0-SNAPSHOT
+Implementation-Vendor-Id: com.bluesprucegroup
+Implementation-URL: http://projects.spring.io/spring-boot/spring-boot-st
+ arter-parent/nj-realtors-csv-to-pdf/
+Created-By: Maven Integration for Eclipse
+

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style type="text/css">
+.pink {
+	background-color: #FFC0CB;
+	color: white;
+}
+.brown {
+	background-color: #A52A2A;
+	color: white;
+}
+</style>
+</head>
+<body>
+	<div th:fragment="urlPdfFileList">
+		<div class="table-responsive">
+			<table class="table table-striped" id="tblPdfFileList1">
+				<thead>
+					<tr>
+						<!-- >th>Download Contract of Sale PDF File</th-->
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="entry : ${urisNjr118}" th:style="'background-color: #FFC0CB;'">
+						<td><a th:href="${entry.href}" th:text="${entry.hrefText}">pdf file</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="table-responsive">
+			<table  class="table table-striped" id="tblPdfFileList2">
+				<thead>
+					<tr>
+						<!--th>Download Lead Paint Disclosure PDF File</th-->
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="entry : ${urisNjrlpd}" th:style="'background-color: #FF9900;'">
+						<td><a th:href="${entry.href}" th:text="${entry.hrefText}">pdf file</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

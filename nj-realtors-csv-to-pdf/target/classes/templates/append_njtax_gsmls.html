@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="common/header :: common-header"/>
+<body roleId="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<head th:replace="common/header :: navbar"/>
+<div class="container main">
+	<div class="page-header">
+		<h1>Append PDFs - Under Construction</h1> 
+	</div>
+	<!-- >div class="row">
+		<div class="col-md-12">
+			<form method="POST" enctype="multipart/form-data" action="#" th:action="@{/files/html/njtax}">
+				<div class="row border">
+					<div class="col-md-5 text-left">
+						<div class="input-group">
+							<label class="input-group-btn"> 
+								<span class="btn btn-primary"> Browse&hellip; 
+									<input type="file" name="file" accept=".html" id="customFile" style="display: none;" />
+								</span>
+							</label> 
+							<input type="csv" class="form-control" id="customFileHolder" readonly="true" />
+						</div>
+						<span class="help-block"> Try selecting an <em>HTML</em> file from <b>NJTaxRecords.com</b> to upload.</span>
+					</div>
+					<div class="col-md-2">
+						<input type="submit" id="btnUploadFile" value="Generate PDFs" class="btn btn-primary" />
+					</div>
+					<div class="col-md-5 text-left">
+						<div th:if="${message}" th:text="${message}" class="alert alert-success" role="alert" id="divUploadSuccess">
+							Upload Success.
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div-->
+	<div class="row">
+		<div class="col-md-12">
+			<form method="post" th:action="@{/save/quickentry/njr118?quickEntryID=}+${njr118DO.quickEntryID}">
+                <input type="hidden" name="id" th:value="${njr118DO.quickEntryID}"/>
+                <!-- START OF QUICK ENTRY FORM -->
+				<table class="table table-bordered table-hover table-striped">
+					<tr>
+						<td><label for="form_buyer_initials">Buyer Initials</label></td>
+						<td><input type="text" th:value="${njr118DO.form_buyer_initials}" name="form_buyer_initials" id="form_buyer_initials" placeholder="<BLANK>" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td><label for="p1_real_estate_broker_rep_value">As a real estate broker, I represent:</label></td>
+						<td>
+							<div>
+								<select class="form-control" id="p1_real_estate_broker_rep_value" name="p1_real_estate_broker_rep_value" th:field="${njr118DO.p1_real_estate_broker_rep_value}">
+			    					<option th:value="${njr118DO.p1_real_estate_broker_rep_value}" selected="selected" th:text="${njr118DO.p1_real_estate_broker_rep_text}" />
+			    					<option th:value="1">Seller, not the buyer</option>
+			    					<option th:value="2">Buyer, not the seller</option>
+			    					<option th:value="3">Both the seller and the buyer</option>
+			    					<option th:value="4">Neither the seller nor the buyer</option>
+			    				</select>
+			    			</div>
+		    			</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+<div class="row">
+	<div id="filePdfList"></div>
+</div>
+<!-- input type="hidden" th:value="@{/files/pdfList}" id="urlPdfFileList" /-->
+<input  type="hidden" th:value="@{/files/pdfList}" id="urlPdfFileList" />
+<div th:replace="common/footer :: footer">...</div>
+<script type="text/javascript" th:src="@{/js/pdfUpload.js}"></script>
+</body>
+</html> 
